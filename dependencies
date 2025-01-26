@@ -1,0 +1,3 @@
+pip install flask
+pip install python-dotenv --> to remember env variables on the shell
+pip install flask-wtf
