@@ -5,9 +5,9 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 import logging
 from logging.handlers import SMTPHandler
-
+ 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config.from_object(Config) # this means take the app config from the object that is inside the paranthesis. It will load the class and takes only the UPPERCASE attributes, and leaves the lowercase attributes.
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
@@ -29,4 +29,4 @@ if not app.debug:
         mail_handler.setLevel(logging.ERROR)
         app.logger.addHandler(mail_handler)
 
-from app import routes, models, errors
+from app import routes, models, errors # 👈 Manually import routes.py models.py and errors.py
